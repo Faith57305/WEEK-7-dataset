@@ -1,0 +1,36 @@
+import matplotlib.pyplot as plt
+
+# 1. Line chart (trend example: sepal length over index)
+plt.figure(figsize=(6,4))
+plt.plot(df["sepal_length"], label="Sepal Length")
+plt.title("Sepal Length Trend")
+plt.xlabel("Index")
+plt.ylabel("Sepal Length (cm)")
+plt.legend()
+plt.show()
+
+# 2. Bar chart (average petal length per species)
+plt.figure(figsize=(6,4))
+petal_means.plot(kind="bar", color=["#3498db","#e74c3c","#2ecc71"])
+plt.title("Average Petal Length per Species")
+plt.xlabel("Species")
+plt.ylabel("Petal Length (cm)")
+plt.show()
+
+# 3. Histogram (distribution of sepal width)
+plt.figure(figsize=(6,4))
+plt.hist(df["sepal_width"], bins=20, color="purple", edgecolor="black")
+plt.title("Distribution of Sepal Width")
+plt.xlabel("Sepal Width (cm)")
+plt.ylabel("Frequency")
+plt.show()
+
+# 4. Scatter plot (Sepal Length vs Petal Length)
+plt.figure(figsize=(6,4))
+for species, data in df.groupby("species"):
+    plt.scatter(data["sepal_length"], data["petal_length"], label=species)
+plt.title("Sepal Length vs Petal Length")
+plt.xlabel("Sepal Length (cm)")
+plt.ylabel("Petal Length (cm)")
+plt.legend()
+plt.show()
